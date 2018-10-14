@@ -1,0 +1,23 @@
+@mixin gradient-bg-3($start-color, $middle-color, $end-color) {
+  $middle-position: 20%;
+  background: $start-color;
+  background: -moz-linear-gradient(
+    top,
+    $start-color 0%,
+    $middle-color $middle-position,
+    $end-color 100%
+  );
+  background: -webkit-linear-gradient(
+    top,
+    $start-color 0%,
+    $middle-color $middle-position,
+    $end-color 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    $start-color 0%,
+    $middle-color $middle-position,
+    $end-color 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$start-color}', endColorstr='#{$end-color}',GradientType=0 );
+}
