@@ -11,13 +11,23 @@ body {
   font-family: "Roboto", sans-serif;
   color: $color-text;
 }
+@for $i from 1 to 6 {
+  h#{$i} {
+    margin: 0;
+    padding: 0 5px;
+  }
+}
+h1 {
+  font-size: 1.2rem;
+}
 .container {
   width: $width-container;
   margin-left: auto;
   margin-right: auto;
   display: block;
 }
-header, section{
+header,
+section {
   z-index: 100;
 }
 .bg-gradient {
@@ -65,3 +75,12 @@ header, section{
 @import "./scss/slider";
 @import "./scss/girls";
 @import "./scss/buttons";
+@import "./scss/catalogs";
+
+.section-header {
+  text-align: center;
+  text-transform: uppercase;
+}
+.section-content {
+  padding: 0 5px;
+}
