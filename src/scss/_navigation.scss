@@ -4,20 +4,28 @@ nav {
     padding: 0;
     list-style: none;
     display: flex;
-  justify-content: center;
-  align-items: center;
+    justify-content: center;
+    align-items: center;
     li.nav-item {
       box-sizing: border-box;
-      border-right: 1px solid black;
+      border-right: 1px solid $color-silver;
+      &:hover {
+        @include gradient-bg-3(
+          $color-bg-end,
+          $color-bg-middle,
+          $color-bg-start
+        );
+      }
       a {
         display: block;
         text-decoration: none;
         color: $color-text;
         padding: 0 1rem;
+        text-shadow: 1px 1px 1px $color-silver;
       }
-      &:last-child{
+      &:last-child {
         border-right: none;
-    }
+      }
     }
   }
 }

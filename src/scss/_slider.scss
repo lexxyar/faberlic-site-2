@@ -1,0 +1,17 @@
+.slider {
+  .slider-container {
+      position: relative;
+    .slide {
+      display: none;
+    }
+    .slider-nav{
+        position: absolute;
+        left: 0;
+        top: 38%;
+        &.slider-nav-right{
+            left: auto;
+            right: 0;
+        }
+    }
+  }
+}

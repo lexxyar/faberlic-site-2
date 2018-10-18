@@ -1,0 +1,23 @@
+.siluet-wrapper {
+    z-index: 1;
+  position: fixed;
+  width: 100vw;
+  .siluet-container {
+    position: relative;
+    // height: 75vh;
+    .siluet {
+      height: $height-siluet;
+      position: absolute;
+      top: 15%;
+      margin-top: 10%;
+      &.siluet-left {
+        left: 0;
+          margin-left: -$width-siluet;
+      }
+      &.siluet-right{
+        right: 0;
+        margin-right: -$width-siluet;
+      }
+    }
+  }
+}

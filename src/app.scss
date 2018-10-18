@@ -17,6 +17,9 @@ body {
   margin-right: auto;
   display: block;
 }
+header, section{
+  z-index: 100;
+}
 .bg-gradient {
   @include gradient-bg-3($color-bg-start, $color-bg-middle, $color-bg-end);
 }
@@ -36,16 +39,14 @@ body {
   grid-template-columns: repeat(3, 1fr);
   height: $faberlic-header-height;
   max-height: $faberlic-header-height;
+  margin-top: 10px;
+  margin-bottom: 10px;
   img {
     max-height: $faberlic-header-height;
   }
   .logo {
   }
-  .phones {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+  @import "./scss/phones";
 }
 
 .business-steps {
@@ -53,9 +54,14 @@ body {
   height: $wallet-header-height;
   display: grid;
   grid-template-columns: 20% 50% 30%;
+  margin: 10px 0;
   .wallet {
     img {
       height: $wallet-header-height;
     }
   }
 }
+
+@import "./scss/slider";
+@import "./scss/girls";
+@import "./scss/buttons";

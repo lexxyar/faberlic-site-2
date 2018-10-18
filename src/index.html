@@ -18,6 +18,13 @@
 </head>
 
 <body>
+    <div class="siluet-wrapper">
+        <div class="container siluet-container">
+            <img src="images/girl2.png" class="siluet siluet-left" alt="">
+            <img src="images/girl1.png" class="siluet siluet-right" alt="">
+        </div>
+    </div>
+
     <header>
         <div class="container">
             <div class="operator-info text-center height-2 bg-gradient">
@@ -28,14 +35,27 @@
                     <img src="images/faberlic.svg" alt="">
                 </div>
                 <div class="slider">
-                    <img src="images/slider/slide01.jpg" alt="">
+                    <div class="slider-container">
+                        <div class="slide slide-1">
+                            <img src="images/slider/slide01.jpg" alt="" />
+                        </div>
+                        <div class="slide slide-2">
+                            <img src="images/slider/slide01.jpg" alt="" />
+                        </div>
+                        <div class="slide slide-3">
+                            <img src="images/slider/slide01.jpg" alt="" />
+                        </div>
+
+                        <button class="slider-nav slider-nav-left" data-iteration="-1">&#10094;</button>
+                        <button class="slider-nav slider-nav-right" data-iteration="1">&#10095;</button>
+                    </div>
                 </div>
                 <div class="phones">
                     <div class="mobile-op beeline">
-                        +79622049089
                         <i class="fab fa-whatsapp"></i>
                         <i class="fab fa-viber"></i>
                         <i class="fab fa-telegram-plane"></i>
+                        +79622049089
                     </div>
                     <div class="mobile-op mts">
                         +79159626051
@@ -81,18 +101,20 @@
         </div>
     </header>
 
-    <section>
-        СПЕШИТЕ!
-        ТОЛЬКО ДЛЯ НОВИЧКОВ
-        При оплатите заказа на 1500 руб. до 23.09.2018 г.
-        - ПОДАРОК
-        - ЛЮБОЙ ИЗ НАБОР КОСМЕТИКИ
-        1 шаг
-        СТАРТОВОЙ ПРОГРАММЫ (переход на акции)
-        <img src="images/Recommendation.jpg" alt="">
-        Вы успешно зарегистрировались и прошли первый шаг.
-        Поздравляем! Со следующего каталога Вас ждут новые
-        возможности по стартовой программе (переход на акции)
+    <section id="step-1">
+        <div class="container">
+            СПЕШИТЕ!
+            ТОЛЬКО ДЛЯ НОВИЧКОВ
+            При оплатите заказа на 1500 руб. до 23.09.2018 г.
+            - ПОДАРОК
+            - ЛЮБОЙ ИЗ НАБОР КОСМЕТИКИ
+            1 шаг
+            СТАРТОВОЙ ПРОГРАММЫ (переход на акции)
+            <img src="images/Recommendation.jpg" alt="">
+            Вы успешно зарегистрировались и прошли первый шаг.
+            Поздравляем! Со следующего каталога Вас ждут новые
+            возможности по стартовой программе (переход на акции)
+        </div>
     </section>
 
     <script src="js/app.js"></script>

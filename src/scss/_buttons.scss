@@ -1,0 +1,23 @@
+.btn {
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+  margin: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+  &.btn-primary {
+    background-color: $color-faberlic;
+    color: #fff;
+    &:hover {
+      background-color: darken($color-faberlic, 5%);
+    }
+  }
+  &.btn-register {
+    border-radius: 7px;
+    font-size: 1.3rem;
+  }
+}
+.register-button{
+    align-self: center;
+}
