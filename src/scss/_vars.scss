@@ -1,9 +1,11 @@
 /* Colors */
 $color-faberlic: #cf0055;
-$color-bg-start: #CCFF66;
+$color-bg-start: #ccff66;
 $color-bg-middle: #ccff00;
-$color-bg-end: #FF9900;
-$color-silver: rgb(192,192,192);
+$color-bg-end: #ff9900;
+$color-silver: rgb(192, 192, 192);
+$color-gray: rgb(126, 126, 126);
+$color-gold: #ffe4a1;
 $color-text: #000;
 
 /* Misc */
@@ -13,3 +15,14 @@ $wallet-header-height: 130px;
 $menu-items-count: 7;
 $width-siluet: 185px;
 $height-siluet: 500px;
+$size-catalog-gap: 7px;
+$count-catalog: 3;
+$count-actions: 2;
+
+/* Cards */
+$count-card: 4;
+$size-card-gap: 10px;
+$width-card: (
+    $width-container - $size-card-gap * ($count-card - 1) - ($count-card - 1)
+  ) / $count-card;
+$height-card: $width-card / 1.75;

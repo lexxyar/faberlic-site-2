@@ -1,0 +1,22 @@
+#actions {
+  .section-content {
+    display: grid;
+    grid-template-columns: repeat($count-actions, 1fr);
+    grid-column-gap: $size-catalog-gap;
+    grid-row-gap: $size-catalog-gap;
+    padding-left: 0;
+    padding-top: $size-catalog-gap;
+    padding-bottom: $size-catalog-gap;
+
+    .action {
+      justify-self: center;
+      align-self: center;
+      a {
+        img {
+          width: $width-container / $count-actions - $size-catalog-gap *
+            ($count-catalog - 1);
+        }
+      }
+    }
+  }
+}

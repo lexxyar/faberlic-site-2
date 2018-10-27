@@ -1,0 +1,90 @@
+#vip {
+  .section-content {
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: repeat($count-card, 1fr);
+    grid-gap: $size-card-gap;
+
+    .card {
+      z-index: 2;
+      &:hover {
+        transform: scale(1.5);
+        transform-origin: top left;
+        z-index: 3;
+      }
+
+      font-size: 0.7rem;
+      background-color: rgb(186, 14, 230);
+      width: $width-card;
+      height: $height-card;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      .fl-bg {
+        z-index: -1;
+        position: absolute;
+        left: 0;
+        height: 95%;
+        transform: rotateZ(-30deg) translateX(-5px);
+        opacity: 0.3;
+        filter: alpha(opacity=30); /* For IE8 and earlier */
+      }
+      .chip {
+        z-index: 1;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-right: 5%;
+        margin-bottom: 5%;
+        width: 10%;
+      }
+      div {
+        z-index: 10;
+        text-transform: uppercase;
+      }
+      .golden-text {
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        color: $color-gold;
+      }
+      .card-header {
+        font-family: "IBM Plex Mono", monospace;
+        width: 100%;
+        text-align: center;
+        font-size: 1.3em;
+        padding-bottom: 10px;
+        font-weight: normal;
+        color: $color-silver;
+        text-shadow: 1px 1px 1px $color-gray;
+        letter-spacing: 0.2em;
+      }
+      .title {
+        font-size: 2.2em;
+        @extend .golden-text;
+      }
+      .subtitle {
+        @extend .golden-text;
+      }
+      .plus {
+        font-size: 0.8em;
+        @extend .golden-text;
+      }
+      .comment {
+        font-size: 0.8em;
+        @extend .golden-text;
+      }
+      .star {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 40px;
+        transform: rotateZ(-20deg) translateX(-5px);
+        margin-top: 1em;
+        margin-right: 2em;
+      }
+    }
+  }
+  padding-bottom: 100px;
+}

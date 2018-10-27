@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600,700|Roboto:400,700,900&subset=cyrillic');
 @import "./scss/vars";
 @import "./scss/mixins";
 @import "./scss/navigation";
@@ -76,6 +76,8 @@ section {
 @import "./scss/girls";
 @import "./scss/buttons";
 @import "./scss/catalogs";
+@import "./scss/actions";
+@import "./scss/card";
 
 .section-header {
   text-align: center;
