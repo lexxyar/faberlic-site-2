@@ -2,6 +2,7 @@ var path = require("path");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var extractCss = new ExtractTextPlugin({
   filename: "app.css"
@@ -65,7 +66,8 @@ module.exports = {
       template: "src/index.html",
       inject: false 
     }),
-    new CleanWebpackPlugin(["dist"])
+    new CleanWebpackPlugin(["dist"]),
+    new CopyWebpackPlugin([{ from: 'src/images/', to: 'images' }], {})
   ],
   // resolve: {
   //   alias: {

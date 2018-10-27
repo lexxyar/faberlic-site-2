@@ -1,9 +1,13 @@
 export class Modal {
   private _modal: HTMLElement;
   private _isShow: boolean = false;
+  private _content: HTMLElement;
   public constructor(selector: string) {
     this._modal = document.querySelector(selector) as HTMLElement;
     let span = this._modal.querySelector(".close") as HTMLElement;
+    this._content = this._modal.querySelector(
+      ".modal-contet-container"
+    ) as HTMLElement;
     let that = this;
     span.addEventListener(
       "click",
@@ -13,6 +17,11 @@ export class Modal {
       },
       false
     );
+  }
+
+  public setContent(content: HTMLElement) {
+    this._content.innerHTML = "";
+    this._content.appendChild(content);
   }
 
   public self(): HTMLElement {

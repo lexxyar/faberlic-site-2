@@ -9,14 +9,26 @@
     padding-bottom: $size-catalog-gap;
 
     .catalog {
-        justify-self: center;
-        align-self: center;
+      justify-self: center;
+      align-self: center;
       a {
         img {
-          width: $width-container / $count-catalog - $size-catalog-gap * ($count-catalog - 1);
-          height: ($width-container / $count-catalog - $size-catalog-gap * ($count-catalog - 1)) * 1.5;
+          width: $width-container / $count-catalog - $size-catalog-gap *
+            ($count-catalog - 1);
+          height: (
+              $width-container / $count-catalog - $size-catalog-gap *
+                ($count-catalog - 1)
+            ) * 1.5;
         }
       }
     }
+  }
+}
+
+.catalog-content {
+  display: flex;
+  flex-wrap: wrap;
+  img{
+    height: $height-catalog-content-img;
   }
 }

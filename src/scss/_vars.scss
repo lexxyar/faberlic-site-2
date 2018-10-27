@@ -26,3 +26,9 @@ $width-card: (
     $width-container - $size-card-gap * ($count-card - 1) - ($count-card - 1)
   ) / $count-card;
 $height-card: $width-card / 1.75;
+
+/* Catalog */
+$height-catalog-content-img: 300px;
+
+/* Modal */
+$opacity-modal-bg:.6;
