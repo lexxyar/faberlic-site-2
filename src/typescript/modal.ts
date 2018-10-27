@@ -1,3 +1,48 @@
+export class Modal {
+  private _modal: HTMLElement;
+  private _isShow: boolean = false;
+  public constructor(selector: string) {
+    this._modal = document.querySelector(selector) as HTMLElement;
+    let span = this._modal.querySelector(".close") as HTMLElement;
+    let that = this;
+    span.addEventListener(
+      "click",
+      e => {
+        e.preventDefault();
+        this.hide();
+      },
+      false
+    );
+  }
+
+  public self(): HTMLElement {
+    return this._modal;
+  }
+
+  public touggle() {
+    if (this._isShow) {
+      this.hide();
+    } else {
+      this.show();
+    }
+  }
+
+  public show() {
+    this._isShow = true;
+    this._modal.style.display = "block";
+  }
+  public hide() {
+    this._isShow = false;
+    this._modal.style.display = "none";
+  }
+  public open() {
+    this.show();
+  }
+  public close() {
+    this.hide();
+  }
+}
+
 // // Get the modal
 // var modal = document.getElementById("myModal");
 
@@ -17,7 +62,7 @@
 //   modal.style.display = "none";
 // };
 
-// // When the user clicks anywhere outside of the modal, close it
+// When the user clicks anywhere outside of the modal, close it
 // window.onclick = function(event) {
 //   if (event.target == modal) {
 //     modal.style.display = "none";
