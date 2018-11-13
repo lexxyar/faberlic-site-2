@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600,700|Roboto:400,700,900&subset=cyrillic');
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600,700|Roboto:400,700,900&subset=cyrillic");
 @import "./scss/vars";
 @import "./scss/mixins";
 @import "./scss/navigation";
@@ -10,6 +10,7 @@ body {
   font-size: 16px;
   font-family: "Roboto", sans-serif;
   color: $color-text;
+  background-color: #fff;
 }
 @for $i from 1 to 6 {
   h#{$i} {
@@ -19,6 +20,13 @@ body {
 }
 h1 {
   font-size: 1.2rem;
+}
+a {
+  color: $color-faberlic;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 .container {
   width: $width-container;
@@ -55,6 +63,10 @@ section {
     max-height: $faberlic-header-height;
   }
   .logo {
+    svg {
+      max-height: $faberlic-header-height;
+      fill: $color-faberlic;
+    }
   }
   @import "./scss/phones";
 }
@@ -82,10 +94,10 @@ section {
 .section-header {
   text-align: center;
   text-transform: uppercase;
+  text-shadow: 1px 1px 1px $color-silver;
 }
 .section-content {
   padding: 0 5px;
 }
 
 @import "./scss/modal";
-
