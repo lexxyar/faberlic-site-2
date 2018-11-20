@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
 window.onclick = function(event: Event) {
   if (event.target == document.querySelector("#myModal")) {
     modal.hide();
-    // modal.style.display = "none";
   }
 };
 
