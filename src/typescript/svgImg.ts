@@ -39,9 +39,12 @@ export class SvgImg {
         if (svg) {
           let w = svg.getAttribute("width");
           let h = svg.getAttribute("height");
+          // console.log(url, w, h, img.width, img.height);
           svg.setAttribute("viewBox", "0 0 " + w + " " + h);
           svg.removeAttribute("width");
           svg.removeAttribute("height");
+          svg.setAttribute("width", img.width+"px");
+          svg.setAttribute("height", img.height+"px");
           svg.setAttribute("preserveAspectRatio", "xMinYMin");
 
           let rect = svg.querySelector('rect');

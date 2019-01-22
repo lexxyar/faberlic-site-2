@@ -1,281 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
 
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/solid.js" integrity="sha384-GJiigN/ef2B3HMj0haY+eMmG4EIIrhWgGJ2Rv0IaWnNdWdbWPr1sRLkGz7xfjOFw"
-        crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/brands.js" integrity="sha384-2vdvXGQdnt+ze3ylY5ESeZ9TOxwxlOsldUzQBwtjvRpen1FwDT767SqyVbYrltjb"
-        crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/fontawesome.js" integrity="sha384-2OfHGv4zQZxcNK+oL8TR9pA+ADXtUODqGpIRy1zOgioC4X3+2vbOAp5Qv7uHM4Z8"
-        crossorigin="anonymous"></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.6.3/js/all.js"
+      integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1"
+      crossorigin="anonymous"
+    ></script>
 
-    <link rel="stylesheet" href="app.css">
-</head>
+    <link rel="stylesheet" href="app.css" />
+  </head>
 
-<body>
-    <div class="siluet-wrapper">
-        <div class="container siluet-container">
-            <img src="images/girl2.png" class="siluet siluet-left" alt="">
-            <img src="images/girl1.png" class="siluet siluet-right" alt="">
-        </div>
-    </div>
-
+  <body>
     <header>
-        <div class="container">
-            <div class="operator-info text-center height-2 bg-gradient">
-                    Оператор на связи с 10:00 до 21:00 по московскому времени.(Ответим на все возникшие вопросы)
-            </div>
-            <div class="faberlic-container">
-                <div class="logo">
-                    <!-- color: ff2400 -->
-                    <img src="images/faberlic.svg" alt="">
-                </div>
-                <div class="slider">
-                    <div class="slider-container">
-                        <div class="slide slide-1">
-                            <img src="images/slider/slide01.jpg" alt="" />
-                        </div>
-                        <div class="slide slide-2">
-                            <img src="images/slider/slide01.jpg" alt="" />
-                        </div>
-                        <div class="slide slide-3">
-                            <img src="images/slider/slide01.jpg" alt="" />
-                        </div>
-
-                        <button class="slider-nav slider-nav-left" data-iteration="-1">&#10094;</button>
-                        <button class="slider-nav slider-nav-right" data-iteration="1">&#10095;</button>
-                    </div>
-                </div>
-                <div class="phones">
-                    <div class="mobile-op beeline">
-                        <i class="fab fa-whatsapp"></i>
-                        <i class="fab fa-viber"></i>
-                        <i class="fab fa-telegram-plane"></i>
-                        +79622049089
-                    </div>
-                    <div class="mobile-op mts">
-                        +79159626051
-                    </div>
-                    <div class="mobile-op megafon">
-                        +79023329095
-                    </div>
-                </div>
-            </div>
-            <div class="navigation-content height-2 bg-gradient">
-                <nav>
-                    <ul class="nav">
-                        <li class="nav-item"><a href="#">Каталоги</a></li>
-                        <li class="nav-item"><a href="#">Акции</a></li>
-                        <li class="nav-item"><a href="#">Патенты</a></li>
-                        <li class="nav-item"><a href="#">
-                            <!-- Окно с паролем -->
-                                <i class="fas fa-lock"></i>
-                                Обучение
-                            </a>
-                        </li>
-                        <li class="nav-item"><a href="#">Маркетинг</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="business-steps">
-                <div class="wallet">
-                    <img src="images/Wallet.jpg" alt="">
-                </div>
-                <div class="positions">
-                    <ul>
-                        <li>Скидка на продукцию от 20% до 70%</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet consectetur.</li>
-                        <li>Lorem ipsum dolor sit.</li>
-                    </ul>
-                </div>
-                <div class="register-button">
-                    <button class="btn btn-primary btn-register">Зарегистрироваться</button>
-                </div>
-            </div>
-        </div>
+      <div class="container">
+        <nav>
+          <ul class="nav">
+            <li class="nav-item active"><a href="#">Каталоги</a></li>
+            <li class="nav-item"><a href="#">Акции</a></li>
+            <li class="nav-item"><a href="#">Патенты</a></li>
+            <li class="nav-item"><a href="#">Маркетинг</a></li>
+            <li class="spacer"></li>
+            <li class="nav-item drop-down right">
+              <a href="#">
+                <i class="fab fa-whatsapp"></i> <i class="fab fa-viber"></i>
+                <i class="fab fa-telegram-plane"></i> <i class="fas fa-phone"></i> +79622049089
+                <i class="fas fa-chevron-down rotatable"></i>
+              </a>
+              <ul class="dd-nav">
+                <li class="dd-nav-item"><a href="#"><i class="fas fa-phone"></i> +79159626051</a></li>
+                <li class="dd-nav-item"><a href="#"><i class="fas fa-phone"></i> +79023329095</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
-
-    <section id="step-1">
-        <div class="container">
-            <div class="height-2 bg-gradient section-header">
-                <h1>СПЕШИТЕ! ТОЛЬКО ДЛЯ НОВИЧКОВ</h1>
-            </div>
-            <div class="section-content">
-                <p>
-                    <!-- Дата настройкой -->
-                    При оплатите заказа на <span>1500</span> руб. до <span>23.09.2018</span>г. - ПОДАРОК
-                </p>
-                <p>
-                    1 шаг <a href="#actions">СТАРТОВОЙ ПРОГРАММЫ</a>
-                </p>
-                <img src="images/recomendation/Recommendation.jpg" alt="" style="text-align: center;">
-                <p>
-                    Вы успешно зарегистрировались и прошли первый шаг.
-                    Поздравляем! Со следующего каталога Вас ждут новые
-                    возможности по <a href="#actions">стартовой программе</a>
-                </p>
-            </div>
+    <section>
+      <div class="container top-nav">
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="#" class="logo">
+              <div class="fl-logo"><img src="images/logo/fl.svg" alt="" /></div>
+              <div class="faberlic-logo">
+                <img src="images/logo/faberlic.svg" alt="" />
+              </div>
+            </a>
+          </li>
+          <li class="nav-item location">
+            <a href="#">
+                <i class="fas fa-map-marker-alt"></i> <span class="shadow">Офис в Ярославле</span>
+            </a>
+          </li>
+          <li class="nav-item education">
+            <a href="#"> <i class="fas fa-lock"></i> <span class="shadow">Обучение</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="container">
+        <div class="register">
+          <a href="#" class="btn btn-register">Зарегистрироваться бесплатно</a>
         </div>
+      </div>
+      <div class="container promo">
+        <ul class="promo-list">
+          <li class="promo-item">
+            <div class="promo-item-comtainer">
+              <div class="promo-icon"><i class="fas fa-percent"></i></div>
+              <div class="promo-text"><span class="shadow">Скидки</span></div>
+            </div>
+          </li>
+          <li class="promo-item">
+            <div class="promo-item-comtainer">
+              <div class="promo-icon">
+                <i class="fas fa-hand-holding-usd"></i>
+              </div>
+              <div class="promo-text"><span class="shadow">Доход с продаж</span></div>
+            </div>
+          </li>
+          <li class="promo-item">
+            <div class="promo-item-comtainer">
+              <div class="promo-icon"><i class="fas fa-chart-line"></i></div>
+              <div class="promo-text"><span class="shadow">Пассивный доход</span></div>
+            </div>
+          </li>
+          <li class="promo-item">
+            <div class="promo-item-comtainer">
+              <div class="promo-icon"><i class="far fa-building"></i></div>
+              <div class="promo-text"><span class="shadow">Бизнес</span></div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </section>
 
+    <section id="step1">
+      <div class="container">
+        <h1>СПЕШИТЕ!</h1>
+        <h2>ТОЛЬКО ДЛЯ НОВИЧКОВ</h2>
+        <p>При оплатите заказа на 1500 руб. до 23.09.2018 г.</p>
+        <ul>
+          <li>&ndash; ПОДАРОК &ndash;</li>
+          <li>&ndash; ЛЮБОЙ ИЗ НАБОРов КОСМЕТИКИ &ndash;</li>
+        </ul>
+
+        <div class="center-content-container">
+          <a href="#" class="btn">
+            1 шаг СТАРТОВОЙ ПРОГРАММЫ (переход на акции)
+          </a>
+        </div>
+
+        <div>
+          <p>Вы успешно зарегистрировались и прошли первый шаг?</p>
+          <h2>Поздравляем!</h2>
+          <p>
+            Со следующего каталога Вас ждут
+            <a href="#">новые возможности по стартовой программе</a> (переход на
+            акции)
+          </p>
+        </div>
+      </div>
+    </section>
     <section id="catalogs">
-        <div class="container">
-            <div class="height-2 bg-gradient section-header">
-                <h1>Каталоги</h1>
-            </div>
-            <div class="section-content">
-                <!-- +php скрипт про количество страниц в каталоге -->
-                <!-- Обложку брать с первой страницы каталога + смещение -->
-                <!-- префикс, № каталога, год, №п/п -->
-                <div class="catalog catalog-1 showModal"><a href="#"><img src="images/catalog/catalog-1.png" alt=""
-                            data-number="1"></a></div>
-                <div class="catalog catalog-2 showModal"><a href="#"><img src="images/catalog/catalog-2.png" alt=""
-                            data-number="2"></a></div>
-                <div class="catalog catalog-3 showModal"><a href="#"><img src="images/catalog/catalog-3.png" alt=""
-                            data-number="3"></a></div>
+      <div class="container">
+        <!-- .catalog-wrapper.catalog-$*6>.catalog-image-holder>img.showModal[src="images/catalog/catalog-$.png"] -->
 
-                <div class="catalog catalog-4 showModal"><a href="#"><img src="images/catalog/catalog-4.png" alt=""
-                            data-number="4"></a></div>
-                <div class="catalog catalog-5 showModal"><a href="#"><img src="images/catalog/catalog-5.png" alt=""
-                            data-number="5"></a></div>
-                <div class="catalog catalog-6 showModal"><a href="#"><img src="images/catalog/catalog-6.png" alt=""
-                            data-number="6"></a></div>
-            </div>
+        <!--  -->
+        <div class="catalog-wrapper catalog-1">
+          <div class="catalog-image-holder">
+            <img src="images/catalog/catalog-1.png" alt="" class="showModal" />
+          </div>
         </div>
+        <div class="catalog-wrapper catalog-2">
+          <div class="catalog-image-holder">
+            <img src="images/catalog/catalog-2.png" alt="" class="showModal" />
+          </div>
+        </div>
+        <div class="catalog-wrapper catalog-3">
+          <div class="catalog-image-holder">
+            <img src="images/catalog/catalog-3.png" alt="" class="showModal" />
+          </div>
+        </div>
+        <div class="catalog-wrapper catalog-4">
+          <div class="catalog-image-holder">
+            <img src="images/catalog/catalog-4.png" alt="" class="showModal" />
+          </div>
+        </div>
+        <div class="catalog-wrapper catalog-5">
+          <div class="catalog-image-holder">
+            <img src="images/catalog/catalog-5.png" alt="" class="showModal" />
+          </div>
+        </div>
+        <div class="catalog-wrapper catalog-6">
+          <div class="catalog-image-holder">
+            <img src="images/catalog/catalog-6.png" alt="" class="showModal" />
+          </div>
+        </div>
+      </div>
     </section>
-
     <section id="actions">
-        <div class="container">
-            <div class="height-2 bg-gradient section-header">
-                <h1>Акции консультанта</h1>
+      <div class="container">
+        <div class="actions-wrapper">
+          <div class="action-detail">
+            <div class="action-detail-content" id="action-detail">
+              <img src="images/action/action-1.png" alt="" />
             </div>
-            <div class="section-content">
-                <!-- Как каталог в отдельном окне -->
-                <div class="action action-1"><a href="#"><img src="images/action/action-1.png" alt=""></a></div>
-                <div class="action action-2"><a href="#"><img src="images/action/action-2.png" alt=""></a></div>
-                <div class="action action-3"><a href="#"><img src="images/action/action-3.png" alt=""></a></div>
-                <div class="action action-4"><a href="#"><img src="images/action/action-4.png" alt=""></a></div>
+          </div>
+          <div class="action-container-wrapper">
+            <div class="action-title"><h2>Акции консультанта</h2></div>
+            <div class="action-container" id="action-items">
+              <div class="container-1">
+                <img src="images/action/action-1.png" alt="" />
+              </div>
+              <div class="container-2">
+                <img src="images/action/action-2.png" alt="" />
+              </div>
+              <div class="container-3">
+                <img src="images/action/action-3.png" alt="" />
+              </div>
+              <div class="container-4">
+                <img src="images/action/action-4.png" alt="" />
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section id="vip">
-        <div class="container">
-            <div class="height-2 bg-gradient section-header">
-                <h1>VIP-привилегии faberlic</h1>
-            </div>
-            <div class="section-content">
-                <div class="card card-1">
-                    <img src="images/fl.png" alt="" class="fl-bg">
-                    <img src="images/chipset.png" alt="" class="chip">
-                    <div class="card-header">Привилегии</div>
-                    <div class="title">Новинки</div>
-                    <div class="subtitle">Lorem ipsum dolor sit amet.</div>
-                    <div class="plus">+</div>
-                    <div class="comment">Lorem ipsum dolor sit amet.</div>
-                    <img src="images/star.svg" alt="" class="star">
-                </div>
+    <footer>
+      <div class="container">
+        <ul class="footer-nav">
+          <li>
+            <i class="fab fa-whatsapp"></i> <i class="fab fa-viber"></i>
+            <i class="fab fa-telegram-plane"></i> <i class="fas fa-phone"></i> <span class="shadow">+79622049089</span>
+          </li>
+          <li><i class="fas fa-phone"></i> <span class="shadow">+79159626051</span></li>
+          <li><i class="fas fa-phone"></i> <span class="shadow">+79023329095</span></li>
+        </ul>
 
-                <div class="card card-2">
-                    <img src="images/fl.png" alt="" class="fl-bg">
-                    <img src="images/chipset.png" alt="" class="chip">
-                    <div class="card-header">Привилегии</div>
-                    <div class="title">Новинки</div>
-                    <div class="subtitle">Lorem ipsum dolor sit amet.</div>
-                    <div class="plus">+</div>
-                    <div class="comment">Lorem ipsum dolor sit amet.</div>
-                    <img src="images/star.svg" alt="" class="star">
-                </div>
-
-                <div class="card card-3">
-                    <img src="images/fl.png" alt="" class="fl-bg">
-                    <img src="images/chipset.png" alt="" class="chip">
-                    <div class="card-header">Привилегии</div>
-                    <div class="title">Новинки</div>
-                    <div class="subtitle">Lorem ipsum dolor sit amet.</div>
-                    <div class="plus">+</div>
-                    <div class="comment">Lorem ipsum dolor sit amet.</div>
-                    <img src="images/star.svg" alt="" class="star">
-                </div>
-
-                <div class="card card-4">
-                    <img src="images/fl.png" alt="" class="fl-bg">
-                    <img src="images/chipset.png" alt="" class="chip">
-                    <div class="card-header">Привилегии</div>
-                    <div class="title">Новинки</div>
-                    <div class="subtitle">Lorem ipsum dolor sit amet.</div>
-                    <div class="plus">+</div>
-                    <div class="comment">Lorem ipsum dolor sit amet.</div>
-                    <img src="images/star.svg" alt="" class="star">
-                </div>
-
-                <div class="card card-5">
-                    <img src="images/fl.png" alt="" class="fl-bg">
-                    <img src="images/chipset.png" alt="" class="chip">
-                    <div class="card-header">Привилегии</div>
-                    <div class="title">Новинки</div>
-                    <div class="subtitle">Lorem ipsum dolor sit amet.</div>
-                    <div class="plus">+</div>
-                    <div class="comment">Lorem ipsum dolor sit amet.</div>
-                    <img src="images/star.svg" alt="" class="star">
-                </div>
-
-                <div class="card card-6">
-                    <img src="images/fl.png" alt="" class="fl-bg">
-                    <img src="images/chipset.png" alt="" class="chip">
-                    <div class="card-header">Привилегии</div>
-                    <div class="title">Новинки</div>
-                    <div class="subtitle">Lorem ipsum dolor sit amet.</div>
-                    <div class="plus">+</div>
-                    <div class="comment">Lorem ipsum dolor sit amet.</div>
-                    <img src="images/star.svg" alt="" class="star">
-                </div>
-
-                <div class="card card-7">
-                    <img src="images/fl.png" alt="" class="fl-bg">
-                    <img src="images/chipset.png" alt="" class="chip">
-                    <div class="card-header">Привилегии</div>
-                    <div class="title">Новинки</div>
-                    <div class="subtitle">Lorem ipsum dolor sit amet.</div>
-                    <div class="plus">+</div>
-                    <div class="comment">Lorem ipsum dolor sit amet.</div>
-                    <img src="images/star.svg" alt="" class="star">
-                </div>
-
-                <div class="card card-8">
-                    <img src="images/fl.png" alt="" class="fl-bg">
-                    <img src="images/chipset.png" alt="" class="chip">
-                    <div class="card-header">Привилегии</div>
-                    <div class="title">Новинки</div>
-                    <div class="subtitle">Lorem ipsum dolor sit amet.</div>
-                    <div class="plus">+</div>
-                    <div class="comment">Lorem ipsum dolor sit amet.</div>
-                    <img src="images/star.svg" alt="" class="star">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="modal-contet-container">
-                <p>Ничего не найдено</p>
-            </div>
-        </div>
-
-    </div>
-
+        <ul class="footer-nav">
+          <li class="logo">
+              <div class="fl-logo"><img src="images/logo/fl.svg" alt="" /></div>
+              <div class="faberlic-logo">
+                <img src="images/logo/faberlic.svg" alt="" />
+              </div>
+          </li>
+          <li><i class="fas fa-map-marker-alt"></i> <span class="shadow">Офис в Ярославле</span></li>
+        </ul>
+      </div>
+    </footer>
     <script src="js/app.js"></script>
-</body>
-
+  </body>
 </html>
