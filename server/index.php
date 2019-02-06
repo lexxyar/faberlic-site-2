@@ -7,7 +7,12 @@ $config->session_lifetime = 60; // seconds
 session_set_cookie_params(0); // session valid while browser is opened
 session_start();
 
+define('PRODUCTION_MODE', false);
 define('DS', DIRECTORY_SEPARATOR);
+define('DIST_FOLDER', PRODUCTION_MODE?'':DS.'dist');
+define('DIST_LINK', PRODUCTION_MODE?'':'/dist');
+define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT'].DIST_FOLDER);
+define('SITE_ROOT_LINK', DIST_LINK);
 
 $sUri = str_replace('/server/','', $_SERVER['REQUEST_URI']);
 $aUri = explode('/',$sUri);
@@ -24,7 +29,7 @@ if($aUri[0] === 'check'){
 if($aUri[0] === 'catalog'){
     $response = new stdClass();
     $response->meta = new stdClass();
-    $dirPath = $_SERVER['DOCUMENT_ROOT'].DS.'dist'.DS.'images'.DS.'catalog'.DS;
+    $dirPath = SITE_ROOT.DS.'images'.DS.'catalog'.DS;
 
     if(isset($aUri[1])){
         $catalogNum = is_numeric($aUri[1])?$aUri[1]:1;
@@ -41,7 +46,7 @@ if($aUri[0] === 'catalog'){
             $response->meta->catalog = $catalogNum;
             $response->meta->count = sizeof($files);
             foreach($files as $file) {
-                $response->data[] = $link.'/dist/images/catalog/'.$catalogNum.'/'.str_replace($catPath, '', $file);
+                $response->data[] = $link.SITE_ROOT_LINK.'/images/catalog/'.$catalogNum.'/'.str_replace($catPath, '', $file);
             }
             header('Content-Type: application/json');
             echo json_encode($response);
@@ -53,7 +58,7 @@ if($aUri[0] === 'catalog'){
 if($aUri[0] === 'image'){
     if(isset($aUri[1]) && $aUri[1] !== ''){
         $imgCatalog = $aUri[1];
-        $dirPath = $_SERVER['DOCUMENT_ROOT'].DS.'dist'.DS.'images'.DS.$imgCatalog.DS;
+        $dirPath = SITE_ROOT.DS.'images'.DS.$imgCatalog.DS;
         if(isset($aUri[2]) && $aUri[2] !== ''){
             $imgNumWithHash = $aUri[2];
 
@@ -84,7 +89,7 @@ if($aUri[0] === 'study'){
         if($_SESSION['hash'] === $hash){
             $response = new stdClass();
             $response->meta = new stdClass();
-            $dirPath = $_SERVER['DOCUMENT_ROOT'].DS.'dist'.DS.'images'.DS.'study'.DS;
+            $dirPath = SITE_ROOT.DS.'images'.DS.'study'.DS;
             $files = glob($dirPath.'*.{jpg,png,gif}', GLOB_BRACE);
             $response->meta->count = sizeof($files);
             foreach($files as $file) {
@@ -96,15 +101,15 @@ if($aUri[0] === 'study'){
         }
         die();
     }
-    $filePath = $_SERVER['DOCUMENT_ROOT'].DS.'dist'.DS.'study.html';
-    $content = file_get_contents($filePath);
-    $doc = new DOMDocument();
-    $doc->loadHTML($content);
-    $body = $doc->getElementsByTagName('body')->item(0);
+    // $filePath = SITE_ROOT.DS.'study.html';
+    // $content = file_get_contents($filePath);
+    // $doc = new DOMDocument();
+    // $doc->loadHTML($content);
+    // $body = $doc->getElementsByTagName('body')->item(0);
     
-    $response = base64_encode($doc->saveHtml($body));
-    echo json_encode($response);
-    die();
+    // $response = base64_encode($doc->saveHtml($body));
+    // echo json_encode($response);
+    // die();
 }
 
 if($method === 'POST' && $aUri[0] === 'studycontent'){
