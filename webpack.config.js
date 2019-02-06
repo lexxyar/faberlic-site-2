@@ -66,8 +66,16 @@ module.exports = {
       template: "src/index.html",
       inject: false 
     }),
+    // new HtmlWebpackPlugin({
+    //   template: "src/study.html",
+    //   filename: "study.html",
+    //   inject: false 
+    // }),
     new CleanWebpackPlugin(["dist"]),
-    new CopyWebpackPlugin([{ from: 'src/images/', to: 'images' }], {})
+    new CopyWebpackPlugin([{ from: 'src/images/', to: 'images' }], {}),
+    new CopyWebpackPlugin([{ from: 'src/403.html', to: '' }], {}),
+    // new CopyWebpackPlugin([{ from: 'src/.htaccess', to: '' }], {}),
+    // new CopyWebpackPlugin([{ from: 'src/index1.php', to: '' }], {})
   ],
   // resolve: {
   //   alias: {
