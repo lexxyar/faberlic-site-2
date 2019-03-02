@@ -3,8 +3,8 @@ $config = new stdClass();
 $config->password = md5('1q1q1q1q');
 $config->session_lifetime = 60; // seconds
 
-// session_set_cookie_params(60*1); //1 minute
-session_set_cookie_params(0); // session valid while browser is opened
+session_set_cookie_params(60*1); //1 minute
+// session_set_cookie_params(0); // session valid while browser is opened
 session_start();
 
 define('PRODUCTION_MODE', false);

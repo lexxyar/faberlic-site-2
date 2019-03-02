@@ -9,6 +9,8 @@ $logo-height: 2em;
 $logo-circle-size: $logo-width + ($logo-width / 6);
 $strok-color: #912626;
 
+@import "./scss/promo";
+
 body {
   margin: 0;
   padding: 0;
@@ -71,7 +73,7 @@ a {
   }
 }
 
-span.shadow, .fas.shadow {
+span.shadow {
   text-shadow: -2px 2px 1px rgba(0, 0, 0, 0.6);
 }
 
@@ -205,36 +207,6 @@ header {
   }
 }
 
-.promo {
-  padding-bottom: 40px;
-  .promo-list {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    color: white;
-    .promo-item {
-      $icon-size: 80px;
-      text-align: center;
-      width: $icon-size + 8;
-      .promo-item-comtainer {
-        .promo-icon {
-          width: $icon-size;
-          height: $icon-size;
-          color: $color-primary;
-          background-color: white;
-          border: 4px solid $strok-color;
-          border-radius: 50%;
-          line-height: $icon-size;
-          font-size: 2em;
-        }
-        .promo-text {
-          margin-top: 10px;
-        }
-      }
-    }
-  }
-}
 .btn {
   display: block;
   background-color: white;
@@ -519,8 +491,52 @@ $height-catalog-content-img: 300px;
   }
 }
 
-.dialog-content{
-  &.study-password{
-
+.dialog-content {
+  &.study-password {
+    .register-dialog-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      justify-items: center;
+      .register-container {
+        .btn-register {
+          background-color: $color-primary;
+          color: white;
+          // &:hover{
+          //   background-color: white;
+          //   color: #cc0000;
+          // }
+        }
+      }
+      .password-container {
+        display: grid;
+        grid-row-gap: 0.5rem;
+        // border-left: 1px solid #cc0000;
+        input {
+          border-color: $color-primary;
+          border-width: 0 0 2px 0;
+          box-shadow: none;
+          font-size: 1.2rem;
+          text-align: center;
+          &:focus {
+            outline: none;
+          }
+        }
+        button {
+          @extend .btn;
+        }
+      }
+    }
   }
+}
+
+.hidden {
+  visibility: hidden;
+}
+.hovered {
+  visibility: visible;
+}
+
+.no-display {
+  display: none;
 }

@@ -5,6 +5,7 @@ import { Modal } from "./modal";
 import { SvgImg } from "./svgImg";
 
 var modal: Modal;
+// var promoFlade: HTMLElement;
 var svgCache = new Map<string, SVGSVGElement>();
 var checkTimer: number;
 document.addEventListener("DOMContentLoaded", () => {
@@ -32,6 +33,72 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.show();
   });
 
+  let aPromo = document.querySelectorAll(".promo-item") as NodeListOf<
+    HTMLElement
+  >;
+  let promoFlade = document.querySelector(".promo-flade") as HTMLElement;
+  if (aPromo && promoFlade) {
+    let promoFladeLarge = promoFlade.querySelector(
+      ".promo-flade-large"
+    ) as HTMLElement;
+    let promoFladeShort = promoFlade.querySelector(
+      ".promo-flade-short"
+    ) as HTMLElement;
+    let promoFladeShortTitle = promoFladeShort.querySelector(
+      ".title"
+    ) as HTMLElement;
+    let promoFladeShortIcon = promoFladeShort.querySelector(
+      ".icon"
+    ) as HTMLElement;
+
+    promoFlade.addEventListener("mouseenter", e => {
+      if (!promoFlade.classList.contains("hovered")) {
+        promoFlade.classList.add("hovered");
+      }
+    });
+    promoFlade.addEventListener("mouseleave", e => {
+      if (promoFlade.classList.contains("hovered")) {
+        promoFlade.classList.remove("hovered");
+      }
+    });
+
+    if (promoFladeLarge && promoFladeShort && promoFladeShortTitle && promoFladeShortIcon) {
+      aPromo.forEach(v => {
+        v.addEventListener("mouseenter", e => {
+          let el = e.target as HTMLElement;
+          let elFlade = el.querySelector(".promo-flade-content") as HTMLElement;
+          let elTitle = el.querySelector(".promo-text") as HTMLElement;
+          let elIcon = el.querySelector(".promo-icon") as HTMLElement;
+          if (el && elFlade && elTitle && elIcon) {
+            for (let i = 1; i <= aPromo.length; i++) {
+              if (promoFlade.classList.contains("position-" + i)) {
+                promoFlade.classList.remove("position-" + i);
+              }
+            }
+            if (promoFlade.classList.contains("hidden")) {
+              promoFlade.classList.remove("hidden");
+            }
+            promoFlade.classList.add("position-" + el.dataset.number);
+
+            promoFladeLarge.innerHTML = elFlade.innerHTML;
+            promoFladeShortTitle.innerText = elTitle.innerText;
+            promoFladeShortIcon.innerHTML = elIcon.innerHTML;
+          }
+        });
+        v.addEventListener("mouseleave", e => {
+          if (!promoFlade.classList.contains("hovered")) {
+            let el = e.target as HTMLElement;
+            if (el) {
+              if (!promoFlade.classList.contains("hidden")) {
+                promoFlade.classList.add("hidden");
+              }
+            }
+          }
+        });
+      });
+    }
+  }
+
   let imgs = document.querySelectorAll("img");
   let oSvg = new SvgImg();
   imgs.forEach(img => {
@@ -58,6 +125,7 @@ function getStudyDialog() {
 
 function createStudyPasswordRequestForm(): HTMLElement {
   let div: HTMLElement = document.createElement("div");
+  div.classList.add('register-dialog-container');
 
   let registerContainer: HTMLElement = document.createElement("div");
   registerContainer.classList.add("register-container");
@@ -78,6 +146,7 @@ function createStudyPasswordRequestForm(): HTMLElement {
   let inputPassword: HTMLInputElement = document.createElement("input");
   inputPassword.type = "text";
   inputPassword.id = "study-password";
+  inputPassword.placeholder = 'Введите пароль';
 
   passwordContainer.appendChild(inputPassword);
 
@@ -116,7 +185,7 @@ function loadStudyData(sPassword: string) {
       if (resp.type === "success") {
         loadStudyContent(resp.value);
         lockOpen();
-        checkTimer = setInterval(checkSession, 1000 * 10);
+        checkTimer = setInterval(checkSession, 1000 * 3);
       } else {
       }
     } else {
@@ -384,7 +453,7 @@ function checkSession() {
   xhr.onload = function() {
     if (xhr.status === 200) {
       let res = xhr.responseText;
-
+      console.count(res);
       if (!res) {
         clearTimeout(checkTimer);
         lockClose();
