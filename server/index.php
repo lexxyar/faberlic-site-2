@@ -20,7 +20,16 @@ $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'htt
 $method = $_SERVER['REQUEST_METHOD'];
 
 if($aUri[0] === 'check'){
-    echo (isset($_SESSION['hash']) && $_SESSION['hash'] !== '');
+    $response = new stdClass();
+    $response->type = 'error';
+    $response->value = '403';
+    if(isset($_SESSION['hash']) && $_SESSION['hash'] !== ''){
+        $response->type = 'success';
+        $response->value = $_SESSION['hash'];
+    }else{
+
+    }
+    echo json_encode($response);
     die();
 }
 
@@ -114,6 +123,7 @@ if($aUri[0] === 'study'){
 
 if($method === 'POST' && $aUri[0] === 'studycontent'){
     $sendedPassword = md5(isset($_POST['password'])?$_POST['password']:'');
+    // $hash = isset($_POST['hash'])?$_POST['hash']:'';
     $response = new stdClass();
     $response->type = 'error';
     $response->value = '403';
@@ -125,10 +135,14 @@ if($method === 'POST' && $aUri[0] === 'studycontent'){
         
         $_SESSION['hash'] = $hash;
         $response->type = 'success';
-        // $response->hash = $hash;
-    $response->value = $hash;
+        $response->value = $hash;
     }else{
-
+        // if($hash){
+        //     if(isset($_SESSION['hash']) && $_SESSION['hash'] !== '' && $hash === $_SESSION['hash']){
+        //         $response->type = 'success';
+        //         $response->value = $hash;
+        //     }
+        // }
     }
     echo json_encode($response);
     die();

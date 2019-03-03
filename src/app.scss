@@ -1,5 +1,20 @@
 // @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600,700|Roboto:400,700,900&subset=cyrillic");
 
+// @import url(//db.onlinewebfonts.com/c/8f368e0eff315719ee0fbbbdbf6c98bf?family=Microsoft+Himalaya);
+// @import url('https://fonts.googleapis.com/css?family=Vollkorn');
+// @import url('https://fonts.googleapis.com/css?family=Lato|Vollkorn');
+// @import url('https://fonts.googleapis.com/css?family=Crimson+Text|Karma|Libre+Baskerville|Poly|Vollkorn');
+
+// @font-face {
+//   font-family: "Dutch823 BT";
+//   src: url("fonts/Dutch823BT-RomanB.eot");
+//   src: url("fonts/Dutch823BT-RomanB.eot?#iefix") format("embedded-opentype"),
+//     url("fonts/Dutch823BT-RomanB.woff2") format("woff2"),
+//     url("fonts/Dutch823BT-RomanB.woff") format("woff");
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
 $color-text: #000000;
 $container-width: 800px;
 $color-primary: #cc0000;
@@ -48,6 +63,9 @@ a {
   align-items: center;
   grid-column-gap: 10px;
   width: 100%;
+  &:hover {
+    color: #fff !important;
+  }
   .fl-logo {
     border: 2px solid white;
     padding: 0.4em;
@@ -64,9 +82,10 @@ a {
   }
 
   .faberlic-logo {
-    img {
-      height: $logo-height;
-    }
+    position: relative;
+    // img {
+    //   height: $logo-height;
+    // }
     svg path {
       fill: white;
     }
@@ -225,8 +244,8 @@ header {
 .register {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 200px;
+  justify-content: flex-end;
+  height: 280px;
   .btn-register {
   }
 }
@@ -502,16 +521,11 @@ $height-catalog-content-img: 300px;
         .btn-register {
           background-color: $color-primary;
           color: white;
-          // &:hover{
-          //   background-color: white;
-          //   color: #cc0000;
-          // }
         }
       }
       .password-container {
         display: grid;
         grid-row-gap: 0.5rem;
-        // border-left: 1px solid #cc0000;
         input {
           border-color: $color-primary;
           border-width: 0 0 2px 0;
@@ -539,4 +553,47 @@ $height-catalog-content-img: 300px;
 
 .no-display {
   display: none;
+}
+
+.main-part {
+  .main-part-cover {
+    position: relative;
+    &::before {
+      content: "";
+      background: url("images/logo/fl.svg");
+      opacity: 0.14;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;
+      background-repeat: no-repeat;
+      background-position: 0 center;
+      background-size: contain;
+    }
+  }
+}
+
+@import url(//db.onlinewebfonts.com/c/8f368e0eff315719ee0fbbbdbf6c98bf?family=Microsoft+Himalaya);
+
+.faberlic {
+  font-family: "Microsoft Himalaya", serif;
+  font-size: 4.2rem;
+  font-weight: normal;
+  letter-spacing: 2px;
+  position: absolute;
+  top: -1.6rem;
+}
+
+.dd-phones {
+  a {
+    color: #fff;
+  }
+}
+
+.study-content{
+  img{
+    max-width: 100%;
+  }
 }

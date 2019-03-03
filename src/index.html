@@ -23,16 +23,17 @@
   </head>
 
   <body>
-    <header>
+    <header id="top">
       <div class="container">
         <nav>
           <ul class="nav">
-            <li class="nav-item active"><a href="#">Каталоги</a></li>
-            <li class="nav-item"><a href="#">Акции</a></li>
+            <li class="nav-item active"><a href="#top">Главная</a></li>
+            <li class="nav-item"><a href="#catalogs">Каталоги</a></li>
+            <li class="nav-item"><a href="#actions">Акции</a></li>
             <li class="nav-item"><a href="#">Патенты</a></li>
             <li class="nav-item"><a href="#">Маркетинг</a></li>
             <li class="spacer"></li>
-            <li class="nav-item drop-down right">
+            <li class="nav-item drop-down right dd-phones">
               <a href="#">
                 <i class="fab fa-whatsapp"></i> <i class="fab fa-viber"></i>
                 <i class="fab fa-telegram-plane"></i>
@@ -52,133 +53,140 @@
         </nav>
       </div>
     </header>
-    <section>
-      <div class="container top-nav">
-        <ul class="nav">
-          <li class="nav-item">
-            <a href="#" class="logo">
-              <div class="fl-logo"><img src="images/logo/fl.svg" alt="" /></div>
-              <div class="faberlic-logo">
-                <img src="images/logo/faberlic.svg" alt="" />
-              </div>
-            </a>
-          </li>
-          <li class="nav-item location">
-            <a href="#">
-              <span class="shadow"
-                ><i class="fas fa-map-marker-alt"></i> Офис в Ярославле</span
+    <section class="main-part">
+      <div class="container main-part-cover">
+        <div class="container top-nav">
+          <ul class="nav">
+            <li class="nav-item">
+              <a href="#" class="logo">
+                <div class="fl-logo">
+                  <img src="images/logo/fl.svg" alt="" />
+                </div>
+                <div class="faberlic-logo">
+                  <span class="faberlic shadow">faberlic</span>
+                  <!-- <br /> -->
+                  <!-- <img src="images/logo/faberlic.svg" alt="" /> -->
+                </div>
+              </a>
+            </li>
+            <li class="nav-item location">
+              <a href="#">
+                <span class="shadow"
+                  ><i class="fas fa-map-marker-alt"></i> Офис в Ярославле</span
+                >
+              </a>
+            </li>
+            <li class="nav-item education">
+              <a href="#" id="study-btn">
+                <span class="shadow"
+                  ><i class="fas fa-lock"></i> Обучение</span
+                ></a
               >
-            </a>
-          </li>
-          <li class="nav-item education">
-            <a href="#" id="study-btn">
-              <span class="shadow"
-                ><i class="fas fa-lock"></i> Обучение</span
-              ></a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="container">
-        <div class="register">
-          <a href="#" class="btn btn-register">Зарегистрироваться бесплатно</a>
+            </li>
+          </ul>
         </div>
-      </div>
-      <div class="container promo">
-        <div class="promo-flade hidden">
-          <div class="promo-flade-container">
-            <div class="promo-flade-large">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-              perferendis aliquam omnis incidunt nesciunt iure magni neque
-              voluptate asperiores amet pariatur sint eligendi optio, deleniti,
-              tenetur voluptatibus, necessitatibus laborum? Impedit odio in
-              molestias, reprehenderit recusandae ipsa officiis earum minus
-              delectus, reiciendis expedita possimus vero voluptates iure modi
-              aut tempore aliquid!
-            </div>
+        <div class="container">
+          <div class="register">
+            <a href="#" class="btn btn-register"
+              >Зарегистрироваться бесплатно</a
+            >
+          </div>
+        </div>
+        <div class="container promo">
+          <div class="promo-flade hidden">
+            <div class="promo-flade-container">
+              <div class="promo-flade-large"></div>
 
-            <div class="promo-flade-short">
-              <div class="title">
-                Lorem ipsum dolor sit.
-              </div>
-              <div class="icon promo-icon">
+              <div class="promo-flade-short">
+                <div class="title"></div>
+                <div class="icon promo-icon">
                   <i class="fas fa-percent"></i>
+                </div>
               </div>
             </div>
           </div>
+          <ul class="promo-list">
+            <li class="promo-item" data-number="1">
+              <div class="promo-item-comtainer">
+                <div class="promo-icon"><i class="fas fa-percent"></i></div>
+                <div class="promo-text"><span class="shadow">Кэшбэк</span></div>
+              </div>
+              <div class="no-display promo-flade-content">
+                <p>
+                  Сделайте первый заказ на сумму не менее 1000 руб. и, при
+                  оплате заказа, на счёт вернётся 15% от стоимости заказа.
+                </p>
+                <p>
+                  Старайтесь не пропускать периоды, в этом случае следующие 5
+                  каталогов кэшбэк будет составлять 20%. Если Вы и далее
+                  продолжите размещать и оплачивать заказы в последующих
+                  каталогах не менее чем на 1000 руб., кэшбэк будет 26%.
+                </p>
+                <p>
+                  Желающие ускорить приближение 26% кэшбэка, могут в любой из
+                  периодов оформить заказ 6000 рублей, и на следующий период
+                  получите возврат в размере 26%.
+                </p>
+                <p>
+                  Но, если Вы пропустили хотя бы один каталог, не сделав ни
+                  одного заказа, придётся начать всё сначала.
+                </p>
+              </div>
+            </li>
+            <li class="promo-item" data-number="2">
+              <div class="promo-item-comtainer">
+                <div class="promo-icon">
+                  <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <div class="promo-text">
+                  <span class="shadow">Доход с продаж</span>
+                </div>
+              </div>
+              <div class="no-display promo-flade-content">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Corrupti aperiam nisi quisquam praesentium perferendis qui
+                  mollitia rem deleniti odio? Maiores accusantium culpa eius
+                  commodi itaque alias molestiae tenetur omnis voluptate!
+                </p>
+              </div>
+            </li>
+            <li class="promo-item" data-number="3">
+              <div class="promo-item-comtainer">
+                <div class="promo-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="promo-text">
+                  <span class="shadow">Пассивный доход</span>
+                </div>
+              </div>
+              <div class="no-display promo-flade-content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Adipisci, repellat distinctio velit obcaecati iusto dolores
+                  excepturi.
+                </p>
+              </div>
+            </li>
+            <li class="promo-item" data-number="4">
+              <div class="promo-item-comtainer">
+                <div class="promo-icon"><i class="far fa-building"></i></div>
+                <div class="promo-text"><span class="shadow">Бизнес</span></div>
+              </div>
+              <div class="no-display promo-flade-content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
+                  illum, necessitatibus doloremque tempora ipsum eaque soluta
+                  porro.
+                </p>
+              </div>
+            </li>
+          </ul>
         </div>
-        <ul class="promo-list">
-          <li class="promo-item" data-number="1">
-            <div class="promo-item-comtainer">
-              <div class="promo-icon"><i class="fas fa-percent"></i></div>
-              <div class="promo-text"><span class="shadow">Кэшбэк</span></div>
-            </div>
-            <div class="no-display promo-flade-content">
-              <p>
-                Сделайте первый заказ на сумму не менее 1000 руб. и, при оплате
-                заказа, на счёт вернётся 15% от стоимости заказа.
-              </p>
-              <p>
-                Старайтесь не пропускать периоды, в этом случае следующие 5
-                каталогов кэшбэк будет составлять 20%. Если Вы и далее
-                продолжите размещать и оплачивать заказы в последующих каталогах
-                не менее чем на 1000 руб., кэшбэк будет 26%.
-              </p>
-              <p>
-                Желающие ускорить приближение 26% кэшбэка, могут в любой из
-                периодов оформить заказ 6000 рублей, и на следующий период
-                получите возврат в размере 26%.
-              </p>
-              <p>
-                Но, если Вы пропустили хотя бы один каталог, не сделав ни одного
-                заказа, придётся начать всё сначала.
-              </p>
-            </div>
-          </li>
-          <li class="promo-item" data-number="2">
-            <div class="promo-item-comtainer">
-              <div class="promo-icon">
-                <i class="fas fa-hand-holding-usd"></i>
-              </div>
-              <div class="promo-text">
-                <span class="shadow">Доход с продаж</span>
-              </div>
-            </div>
-            <div class="no-display promo-flade-content">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti
-              aperiam nisi quisquam praesentium perferendis qui mollitia rem
-              deleniti odio? Maiores accusantium culpa eius commodi itaque alias
-              molestiae tenetur omnis voluptate!
-            </div>
-          </li>
-          <li class="promo-item" data-number="3">
-            <div class="promo-item-comtainer">
-              <div class="promo-icon"><i class="fas fa-chart-line"></i></div>
-              <div class="promo-text">
-                <span class="shadow">Пассивный доход</span>
-              </div>
-            </div>
-            <div class="no-display promo-flade-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci,
-              repellat distinctio velit obcaecati iusto dolores excepturi.
-            </div>
-          </li>
-          <li class="promo-item" data-number="4">
-            <div class="promo-item-comtainer">
-              <div class="promo-icon"><i class="far fa-building"></i></div>
-              <div class="promo-text"><span class="shadow">Бизнес</span></div>
-            </div>
-            <div class="no-display promo-flade-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-              illum, necessitatibus doloremque tempora ipsum eaque soluta porro.
-            </div>
-          </li>
-        </ul>
       </div>
     </section>
 
     <section id="step1">
       <div class="container">
+        <!-- <h1>faberlic</h1> -->
         <h1>СПЕШИТЕ!</h1>
         <h2>ТОЛЬКО ДЛЯ НОВИЧКОВ</h2>
         <p>При оплатите заказа на 1500 руб. до 23.09.2018 г.</p>
@@ -204,6 +212,7 @@
         </div>
       </div>
     </section>
+
     <section id="catalogs">
       <div class="container">
         <!-- .catalog-wrapper.catalog-$*6>.catalog-image-holder>img.showModal[src="images/catalog/catalog-$.png"] -->
@@ -241,6 +250,7 @@
         </div>
       </div>
     </section>
+
     <section id="actions">
       <div class="container">
         <div class="actions-wrapper">

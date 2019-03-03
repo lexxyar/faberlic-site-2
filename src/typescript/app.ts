@@ -7,8 +7,9 @@ import { SvgImg } from "./svgImg";
 var modal: Modal;
 // var promoFlade: HTMLElement;
 var svgCache = new Map<string, SVGSVGElement>();
-var checkTimer: number;
+// var checkTimer: number;
 document.addEventListener("DOMContentLoaded", () => {
+  // smoothScroll();
   // new Slider(".slider");
   modal = new Modal("#myModal");
 
@@ -29,9 +30,19 @@ document.addEventListener("DOMContentLoaded", () => {
   ) as HTMLElement;
   studyBtn.addEventListener("click", e => {
     e.preventDefault();
-    getStudyDialog();
+    let sesValue: string = checkSession();
+    if (sesValue) {
+      loadStudyContent(sesValue);
+    } else {
+      getStudyDialog();
+    }
     modal.show();
   });
+
+  let sesValue: string = checkSession();
+  if (sesValue) {
+    lockOpen();
+  }
 
   let aPromo = document.querySelectorAll(".promo-item") as NodeListOf<
     HTMLElement
@@ -62,7 +73,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    if (promoFladeLarge && promoFladeShort && promoFladeShortTitle && promoFladeShortIcon) {
+    if (
+      promoFladeLarge &&
+      promoFladeShort &&
+      promoFladeShortTitle &&
+      promoFladeShortIcon
+    ) {
       aPromo.forEach(v => {
         v.addEventListener("mouseenter", e => {
           let el = e.target as HTMLElement;
@@ -99,6 +115,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  let topNav = document.querySelectorAll(
+    "#top .nav .nav-item:not(.drop-down) > a"
+  ) as NodeListOf<HTMLElement>;
+  if (topNav && topNav.length > 0) {
+    topNav.forEach((el: HTMLElement) => {
+      el.addEventListener(
+        "click",
+        e => {
+          e.preventDefault();
+          let a = e.target as HTMLLinkElement;
+          if (a) {
+            let matches = a.href.match(/#(\w+)/);
+            if (matches && matches[1]) {
+              smoothScroll(matches[1]);
+            }
+          }
+        },
+        false
+      );
+    });
+  }
+
   let imgs = document.querySelectorAll("img");
   let oSvg = new SvgImg();
   imgs.forEach(img => {
@@ -125,7 +163,7 @@ function getStudyDialog() {
 
 function createStudyPasswordRequestForm(): HTMLElement {
   let div: HTMLElement = document.createElement("div");
-  div.classList.add('register-dialog-container');
+  div.classList.add("register-dialog-container");
 
   let registerContainer: HTMLElement = document.createElement("div");
   registerContainer.classList.add("register-container");
@@ -146,7 +184,7 @@ function createStudyPasswordRequestForm(): HTMLElement {
   let inputPassword: HTMLInputElement = document.createElement("input");
   inputPassword.type = "text";
   inputPassword.id = "study-password";
-  inputPassword.placeholder = 'Введите пароль';
+  inputPassword.placeholder = "Введите пароль";
 
   passwordContainer.appendChild(inputPassword);
 
@@ -180,12 +218,12 @@ function loadStudyData(sPassword: string) {
   xhr.onload = function() {
     if (xhr.status === 200) {
       let resp = JSON.parse(xhr.responseText);
-      console.log(resp);
+      // console.log(resp);
       // let link = "/server/study/";
       if (resp.type === "success") {
         loadStudyContent(resp.value);
         lockOpen();
-        checkTimer = setInterval(checkSession, 1000 * 3);
+        // checkTimer = setInterval(checkSession, 1000 * 3);
       } else {
       }
     } else {
@@ -194,6 +232,29 @@ function loadStudyData(sPassword: string) {
   };
   xhr.send(params);
 }
+
+// function loadStudyDataHash(sHash: string) {
+//   let xhr = new XMLHttpRequest();
+//   let params = "hash=" + sHash;
+//   xhr.open("POST", "/server/studycontent/");
+//   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//   xhr.onload = function() {
+//     if (xhr.status === 200) {
+//       let resp = JSON.parse(xhr.responseText);
+//       // console.log(resp);
+//       // let link = "/server/study/";
+//       if (resp.type === "success") {
+//         loadStudyContent(resp.value);
+//         lockOpen();
+//         // checkTimer = setInterval(checkSession, 1000 * 3);
+//       } else {
+//       }
+//     } else {
+//       console.error("Request failed.  Returned status of " + xhr.status);
+//     }
+//   };
+//   xhr.send(params);
+// }
 
 function loadStudyContent(sHash: string) {
   var xhr = new XMLHttpRequest();
@@ -446,24 +507,29 @@ const Base64 = {
 };
 
 function checkSession() {
-  console.log("checking...");
-
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", "/server/check");
+  // console.log("checking...");
+  let result: string = "";
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", "/server/check", false);
   xhr.onload = function() {
     if (xhr.status === 200) {
       let res = xhr.responseText;
-      console.count(res);
-      if (!res) {
-        clearTimeout(checkTimer);
-        lockClose();
+      // console.log("response:");
+      // console.log(res);
+      // console.log("end-response");
+      if (res) {
+        let resJson = JSON.parse(res);
+        // console.log("parse", resJson);
+        if (resJson.type == "success") {
+          result = resJson.value;
+        }
       }
     } else {
       console.error("Request failed.  Returned status of " + xhr.status);
     }
   };
   xhr.send();
-
+  return result;
   // checkTimer
 }
 
@@ -479,14 +545,66 @@ function lockOpen() {
     }
   }
 }
-function lockClose() {
-  let lock: HTMLElement | null = document.querySelector("#study-btn i");
-  if (lock) {
-    if (lock.classList.contains("fa-lock-open")) {
-      lock.classList.remove("fa-lock-open");
+// function lockClose() {
+//   let lock: HTMLElement | null = document.querySelector("#study-btn i");
+//   if (lock) {
+//     if (lock.classList.contains("fa-lock-open")) {
+//       lock.classList.remove("fa-lock-open");
+//     }
+//     if (!lock.classList.contains("fa-lock")) {
+//       lock.classList.add("fa-lock");
+//     }
+//   }
+// }
+
+function currentYPosition() {
+  // Firefox, Chrome, Opera, Safari
+  if (self.pageYOffset) return self.pageYOffset;
+  // Internet Explorer 6 - standards mode
+  if (document.documentElement && document.documentElement.scrollTop)
+    return document.documentElement.scrollTop;
+  // Internet Explorer 6, 7 and 8
+  if (document.body.scrollTop) return document.body.scrollTop;
+  return 0;
+}
+
+function elmYPosition(eID: string) {
+  let elm: HTMLElement = document.getElementById(eID) as HTMLElement;
+  let y = elm.offsetTop;
+  let node: HTMLElement = elm;
+  while (node.offsetParent && node.offsetParent != document.body) {
+    let pnode = node.offsetParent as HTMLElement;
+    y += pnode.offsetTop;
+  }
+  return y;
+}
+
+function smoothScroll(eID: string) {
+  var startY = currentYPosition();
+  var stopY = elmYPosition(eID);
+  var distance = stopY > startY ? stopY - startY : startY - stopY;
+  if (distance < 100) {
+    scrollTo(0, stopY);
+    return;
+  }
+  var speed = Math.round(distance / 100);
+  if (speed >= 20) speed = 20;
+  var step = Math.round(distance / 25);
+  var leapY = stopY > startY ? startY + step : startY - step;
+  var timer = 0;
+  if (stopY > startY) {
+    for (var i = startY; i < stopY; i += step) {
+      setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+      leapY += step;
+      if (leapY > stopY) leapY = stopY;
+      timer++;
     }
-    if (!lock.classList.contains("fa-lock")) {
-      lock.classList.add("fa-lock");
-    }
+    return;
+  }
+  for (var i = startY; i > stopY; i -= step) {
+    setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+    leapY -= step;
+    if (leapY < stopY) leapY = stopY;
+    timer++;
   }
 }

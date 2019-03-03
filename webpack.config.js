@@ -75,6 +75,7 @@ module.exports = {
     new CopyWebpackPlugin([{ from: 'src/images/', to: 'images' }], {}),
     new CopyWebpackPlugin([{ from: 'src/403.html', to: '' }], {}),
     new CopyWebpackPlugin([{ from: 'server/', to: 'server' }], {}),
+    new CopyWebpackPlugin([{ from: 'src/fonts/', to: 'fonts' }], {}),
     // new CopyWebpackPlugin([{ from: 'src/.htaccess', to: '' }], {}),
     // new CopyWebpackPlugin([{ from: 'src/index1.php', to: '' }], {})
   ],
