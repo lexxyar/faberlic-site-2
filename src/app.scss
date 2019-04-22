@@ -592,8 +592,30 @@ $height-catalog-content-img: 300px;
   }
 }
 
-.study-content{
-  img{
+.study-content {
+  img {
     max-width: 100%;
   }
+}
+
+// Patents
+#patents {
+  .patent-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 70px;
+    .patent-holder {
+      width: 100px;
+      margin: 5px;
+      img {
+        width: 100px;
+        height: 150px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.patent-modal-content {
+  text-align: center;
 }

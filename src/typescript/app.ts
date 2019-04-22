@@ -142,7 +142,67 @@ document.addEventListener("DOMContentLoaded", () => {
   imgs.forEach(img => {
     oSvg.replace(img);
   });
+
+  // Patents
+  let aPatents: string[] = [
+    "https://faberlic.com/images/stories/News/Patent2290169.jpg",
+    "https://faberlic.com/images/stories/News/Patent-2033163.jpg",
+    "https://faberlic.com/images/stories/News/Patent-2371170.jpg",
+    "https://faberlic.com/images/stories/News/Patent_2114627.jpg",
+    "https://faberlic.com/images/stories/News/Patent_2119790-1.jpg",
+    "https://faberlic.com/images/stories/News/Patent_2197225.jpg",
+    "https://faberlic.com/images/stories/News/Patent_2221545.jpg",
+    "https://faberlic.com/images/stories/News/Patent_2221547.jpg",
+    "https://faberlic.com/images/stories/News/Patent_2229886.jpg",
+    "https://faberlic.com/images/stories/News/Patent_2253440.jpg",
+    "https://faberlic.com/images/stories/News/Patent_2262919.jpg",
+    "https://faberlic.com/images/stories/News/Patent_2262920.jpg",
+    "https://faberlic.com/images/stories/News/Patent_2275897.jpg",
+    "https://faberlic.com/images/stories/News/Patent_2299724.jpg",
+    "https://faberlic.com/images/stories/News/Patent_2352322.jpg",
+    "https://faberlic.com/images/stories/News/Patent_2357722.jpg",
+    "https://faberlic.com/images/stories/News/Patent_2436559.jpg",
+    "https://faberlic.com/images/stories/News/Patent_2099050.jpg",
+    "https://faberlic.com/images/stories/News/Patent_2096031.jpg",
+    "https://faberlic.com/images/stories/News/Tovary/Patent_2082388.jpg",
+    "https://faberlic.com/images/stories/News/Tovary/Patent_2082389.jpg"
+  ];
+
+  let oPatents = document.querySelector("#patents .container") as HTMLElement;
+  let oDivWrapper: HTMLElement = document.createElement("div") as HTMLElement;
+  oDivWrapper.classList.add("patent-wrapper");
+
+  oPatents.appendChild(oDivWrapper);
+
+  aPatents.forEach((value: string) => {
+    let oDivHolder: HTMLElement = document.createElement("div") as HTMLElement;
+    oDivHolder.classList.add("patent-holder");
+
+    let oImg = document.createElement("img") as HTMLImageElement;
+    oImg.src = value;
+
+    oImg.addEventListener("click", (e: Event) => {
+      e.preventDefault();
+      let img = e.target as HTMLImageElement;
+      console.log(img.src);
+      showPatentInModal(img.src);
+    });
+
+    oDivHolder.appendChild(oImg);
+    oDivWrapper.appendChild(oDivHolder);
+  });
 });
+
+function showPatentInModal(sImageSrc: string) {
+  let div: HTMLElement = document.createElement("div");
+  div.classList.add("patent-modal-content");
+  let img = document.createElement("img");
+  img.src = sImageSrc;
+  div.appendChild(img);
+// console.log('Modal Patent');
+  modal.setContent(div);
+  modal.show();
+}
 
 window.onclick = function(event: Event) {
   if (event.target == document.querySelector("#myModal")) {
@@ -301,9 +361,14 @@ function renderCatalog(sInfo: string): HTMLElement {
   let div: HTMLElement = document.createElement("div");
   div.classList.add("catalog-content");
   for (let i = 0; i < aImages.length; i++) {
+    let a = document.createElement('a') as HTMLAnchorElement;
+    a.target = '_blank';
+    a.href = aImages[i];
+
     let img = document.createElement("img");
     img.src = aImages[i];
-    div.appendChild(img);
+    a.appendChild(img);
+    div.appendChild(a);
   }
   return div;
 }
