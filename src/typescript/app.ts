@@ -191,6 +191,12 @@ document.addEventListener("DOMContentLoaded", () => {
     oDivHolder.appendChild(oImg);
     oDivWrapper.appendChild(oDivHolder);
   });
+
+  // Marketing
+  let marketingConsultRateTable = document.querySelector("#consult-rate");
+  if (marketingConsultRateTable) {
+    marketingConsultRateTable.appendChild(ceateConsultRateTableContent());
+  }
 });
 
 function showPatentInModal(sImageSrc: string) {
@@ -199,7 +205,7 @@ function showPatentInModal(sImageSrc: string) {
   let img = document.createElement("img");
   img.src = sImageSrc;
   div.appendChild(img);
-// console.log('Modal Patent');
+  // console.log('Modal Patent');
   modal.setContent(div);
   modal.show();
 }
@@ -361,8 +367,8 @@ function renderCatalog(sInfo: string): HTMLElement {
   let div: HTMLElement = document.createElement("div");
   div.classList.add("catalog-content");
   for (let i = 0; i < aImages.length; i++) {
-    let a = document.createElement('a') as HTMLAnchorElement;
-    a.target = '_blank';
+    let a = document.createElement("a") as HTMLAnchorElement;
+    a.target = "_blank";
     a.href = aImages[i];
 
     let img = document.createElement("img");
@@ -672,4 +678,65 @@ function smoothScroll(eID: string) {
     if (leapY < stopY) leapY = stopY;
     timer++;
   }
+}
+
+// Marketing
+function ceateConsultRateTableContent(): HTMLElement {
+  let aContent = [
+    ["Консультант", 50, "100", "-", "-", "3%", "-"],
+    ["Старший Консультант", 50, "200", "-", "-", "6%", "-"],
+    ["Лидер", 50, "600", "-", "-", "9%", "-"],
+    ["Старший Лидер", 50, "1000", "-", "-", "12%", "-"],
+    ["Вице-директор", 50, "1500", "-", "-", "15%", "-"],
+    ["Старший Вице-директор", 50, "2000", "-", "-", "19%", "-"],
+    ["Кандидат в Директора", 50, "3000", "-", "-", "23%", "-"],
+    ["Директор", 50, "3000", "0", "-", "23%", "55 000"],
+    ["Старший Директор", 50, "5000/2000**", "0/1**", "-", "23%", "27 500"],
+    ["Серебряный Директор", 50, "1500", "2", "-", "23%", "110 000"],
+    ["Золотой Директор", 50, "1000", "3", "-", "23%", "165 000"],
+    ["Рубиновый Директор", 50, "1000", "4", "-", "23%", "220 000"],
+    ["Бриллиантовый Директор", 50, "1000", "6", "-", "23%", "330 000"],
+    ["Элитный Директор", 50, "1000", "9", "-", "23%", "500 000"],
+    ["Национальный Директор", 50, "1000", "12", "-", "23%", "1 000 000"],
+    [
+      "Старший Национальный Директор",
+      50,
+      "1000",
+      "15",
+      "-",
+      "23%",
+      "1 250 000"
+    ],
+    ["Международный Директор", 50, "1000", "18", "-", "23%", "1 500 000"],
+    [
+      "Старший Международный Директор",
+      50,
+      "1000",
+      "21",
+      "-",
+      "23%",
+      "1 750 000"
+    ],
+    ["Партнер", 50, "1000", "24", "-", "23%", "5 500 000"],
+    ["Старший Партнер", 50, "1000", "24", "6", "23%", "8 000 000"],
+    ["Управляющий Партнер", 50, "1000", "24", "12", "23%", "14 000 000"],
+    ["Национальный Партнер", 50, "1000", "24", "18", "23%", "20 000 000"],
+    ["Международный Партнер", 50, "1000", "24", "24", "23%", "40 000 000"],
+    ["Генеральный Партнер", 50, "1000", "30", "30", "23%", "55 000 000"]
+  ];
+
+  let tbody = document.createElement("tbody");
+  for (let nRow = 0; nRow < aContent.length; nRow++) {
+    let tr = document.createElement("tr") as HTMLTableRowElement;
+    let aRow = aContent[nRow];
+    for (let nCol = 0; nCol < aRow.length; nCol++) {
+      let td = document.createElement("td") as HTMLTableCellElement;
+      let sCell = aRow[nCol] as string;
+      let oCell = document.createTextNode(sCell);
+      td.appendChild(oCell);
+      tr.appendChild(td);
+    }
+    tbody.appendChild(tr);
+  }
+  return tbody;
 }
